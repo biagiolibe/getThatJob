@@ -1,7 +1,5 @@
 package com.biagio.dataStructures.testing;
 
-import javax.tools.ToolProvider;
-
 import com.biagio.dataStructures.LinkedList.SinglyLinkedList;
 import com.biagio.dataStructures.LinkedList.SinglyLinkedNode;
 
