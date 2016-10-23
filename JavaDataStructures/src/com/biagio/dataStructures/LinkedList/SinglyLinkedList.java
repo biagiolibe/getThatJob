@@ -157,6 +157,22 @@ public class SinglyLinkedList<T>{
 	}
 	
 	/**
+	 * Return the node with the key key
+	 * @param key
+	 * @return the node with the specified value key
+	 */
+	public SinglyLinkedNode<T> getNode(T key){
+		SinglyLinkedNode<T> curr=head;
+		while(curr.getNext()!=null){
+			curr=curr.getNext();
+			if(curr.equals(key)){
+				return curr;
+			}
+		}
+		return null;
+	}
+	
+	/**
 	 * Delete from the list the node having the same key as the one of the specified node
 	 * @param node
 	 */
@@ -181,10 +197,43 @@ public class SinglyLinkedList<T>{
 		size--;
 	}
 	
+	/**
+	 * Insert a new node with the value key before the specified before node
+	 * @param key
+	 * @param before
+	 */
+	public void addBefore(T key, SinglyLinkedNode<T> before){
+		SinglyLinkedNode<T> curr=head;
+		SinglyLinkedNode<T> newNode=new SinglyLinkedNode<>(key);
+		newNode.setNext(before);
+		while(curr.getNext()!=null){
+			if(curr.getNext().equals(before)){
+				curr.setNext(newNode);
+				break;
+			}
+			curr=curr.getNext();
+		}
+		size++;
+	}
+	
+	/**
+	 * Insert a new node with the value key after the specified after node
+	 * @param key
+	 * @param after
+	 */
+	public void addAfter(T key, SinglyLinkedNode<T> after){
+		SinglyLinkedNode<T> newNode=new SinglyLinkedNode<>(key);
+		newNode.setNext(after.getNext());
+		after.setNext(newNode);
+		
+		size++;
+		if(tail.getNext()==after){
+			tail.setNext(newNode);
+		}
+	}
+	
 	/*
 	 * Implement methods:
-	 *  - erase
-	 *  - addBefore
 	 *  - addAfter
 	 */
 		
