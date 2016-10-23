@@ -17,6 +17,10 @@ public class SinglyLinkedListMain {
 		System.out.println("size: "+list.getSize());
 		System.out.println(list.toString());
 		
+		list.addBefore(7, list.getNode(2));
+		list.addAfter(10, list.getNode(4));
+		System.out.println(list.toString());
+		
 		list.erase(new SinglyLinkedNode<>(6));
 		System.out.println(list.toString());
 		
